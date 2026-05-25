@@ -30,7 +30,7 @@ Check the given `.md` file(s) for formatting issues. Report each issue with file
 
 ## Output Format
 
-```
+```text
 ## Lint Report: <filename>
 
 ### Critical (N)
