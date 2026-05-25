@@ -6,8 +6,6 @@ metadata:
   trigger: manual
 ---
 
-Apply to every `.md` file.
-
 ## Structure
 
 - **Heading hierarchy.** h1→h2→h3, never skip a level. One topic per section.
@@ -32,6 +30,7 @@ Apply to every `.md` file.
 Re-read once. Check every item:
 
 ### Format
+
 - [ ] Heading hierarchy (no skip, single h1)
 - [ ] Code block language tags
 - [ ] Links have text, not "here"; relative links resolve
@@ -39,6 +38,7 @@ Re-read once. Check every item:
 - [ ] No trailing whitespace
 
 ### Content
+
 - [ ] No paragraph >4 sentences
 - [ ] No fillers (very, just, actually, basically, note that)
 - [ ] Active voice
