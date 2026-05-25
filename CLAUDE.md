@@ -1,6 +1,6 @@
 # SkillHub
 
-Personal skill hub. Skills in `.agent/skills/`.
+Personal skill hub. Skills in `.agent/skills/` (source) — synced to `.claude/skills/` for Claude Code discovery.
 
 ## Global Rules
 
