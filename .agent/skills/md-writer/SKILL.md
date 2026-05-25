@@ -37,6 +37,7 @@ Re-read once. Check every item:
 - [ ] Code block language tags
 - [ ] Links have text, not "here"; relative links resolve
 - [ ] No empty sections
+- [ ] Table separator has spaces (`| --- |`)
 - [ ] No trailing whitespace
 
 ### Content

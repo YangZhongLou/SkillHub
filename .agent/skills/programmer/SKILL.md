@@ -13,7 +13,7 @@ metadata:
 
 - **Simplicity.** Simplest solution first. No premature abstraction.
 - **Correctness.** Working + readable > clever + fragile.
-- **Safety.** No XSS, SQL injection, command injection, path traversal. Validate at boundaries only.
+- **Safety.** No XSS, SQL injection, command injection, path traversal. Validate at boundaries. Use assertions for internal invariants.
 - **No destruction.** Never delete repos, drop databases, `rm -rf`, or force push main without confirmation.
 - **Minimal diffs.** Change only what's needed. No drive-by refactors.
 - **No dead code.** Delete unused code. No commented-out blocks, `_unused` vars.

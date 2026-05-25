@@ -54,6 +54,7 @@ metadata:
 ## Bug Report
 
 ```text
+Severity: <critical/high/medium/low>
 Title: <component> <symptom> when <condition>
 
 Steps:

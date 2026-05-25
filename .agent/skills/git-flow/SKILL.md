@@ -21,7 +21,7 @@ main ←── rebase ── feature/x ── commits ── QA
 2. **Commit.** Small, logical commits. Present tense, imperative.
 3. **QA.** Run tests, lint, type-check. Verify in the real app. Only proceed if green.
 4. **Rebase.** `git fetch origin && git rebase origin/main`. Resolve conflicts per commit.
-5. **Merge.** `git checkout main && git merge feature/<name>` (fast-forward only).
+5. **Merge.** `git checkout main && git merge --ff-only feature/<name>`.
 6. **Push.** `git push origin main`.
 7. **Clean.** `git branch -d feature/<name>`.
 

@@ -46,7 +46,7 @@ Check `.md` files. Report: file, line, issue → fix. Group by severity.
 | MD005 | Inconsistent list indent |
 | MD009 | Trailing whitespace |
 | MD012 | Multiple consecutive blank lines (>1) |
-| MD060 | Table separator missing spaces (`|---|---|`→`| --- | --- |`) |
+| MD060 | Table separator missing spaces (`|---|---|`→`| --- | --- |`) — custom rule |
 
 ## Content Checks (beyond markdownlint)
 
