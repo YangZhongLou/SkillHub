@@ -1,5 +1,5 @@
 ---
-name: md-lint
+name: markdown-linter
 description: Invoke when reviewing any .md file for formatting issues.
 metadata:
   type: skill

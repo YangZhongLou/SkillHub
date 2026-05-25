@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: code-reviewer
 description: Code review skill. Invoke when reviewing code changes for correctness, safety, clarity, and completeness.
 metadata:
   type: skill

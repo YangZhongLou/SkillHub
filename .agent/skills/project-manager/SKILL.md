@@ -1,5 +1,5 @@
 ---
-name: pm
+name: project-manager
 description: Project management skill. Invoke when planning projects, breaking down work, prioritizing tasks, tracking progress, or managing scope and stakeholders.
 metadata:
   type: skill

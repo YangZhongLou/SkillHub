@@ -1,5 +1,5 @@
 ---
-name: md-writer
+name: markdown-writer
 description: Invoke when drafting docs, READMEs, proposals, or changelogs.
 metadata:
   type: skill
