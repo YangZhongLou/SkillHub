@@ -1,6 +1,6 @@
 ---
 name: md-lint
-description: Lint .md files for format issues: heading hierarchy, code blocks, links, filler words, paragraph length. Report by severity.
+description: Comprehensive markdown linter. Checks headings, tables, lists, code blocks, links, whitespace, and content. Use when reviewing any .md file.
 metadata:
   type: skill
   trigger: manual
@@ -8,42 +8,67 @@ metadata:
 
 # md-lint
 
+Check `.md` files. Report: file, line, issue → fix. Group by severity.
+
 ## Critical
 
-- [ ] Skipped heading level (`##` → `####`)
-- [ ] Code block without language tag
-- [ ] Broken relative link
-- [ ] Heading without blank line above or below
+| Rule | Check |
+| --- | --- |
+| MD001 | Skipped heading level (`##` → `####`) |
+| MD040 | Code block without language tag |
+| MD042 | Empty link (`[]()` or `[](#)`) |
+| MD045 | Image without alt text |
+| MD051 | Broken fragment link (`[text](#missing)`) |
 
 ## Warning
 
-- [ ] First non-frontmatter line is not a heading (MD041)
-- [ ] Paragraph >4 sentences
-- [ ] Fillers: very, just, actually, really, basically, note that
-- [ ] Bare link text ("here", "link", raw URL)
-- [ ] CAPS for emphasis (use **bold**)
-- [ ] Multiple h1 in file
-- [ ] Empty section (heading, no content)
+| Rule | Check |
+| --- | --- |
+| MD018 | No space after `#` in heading |
+| MD019 | Multiple spaces after `#` in heading |
+| MD022 | Heading not surrounded by blank lines |
+| MD023 | Heading indented instead of at line start |
+| MD024 | Duplicate heading text |
+| MD025 | Multiple h1 in file |
+| MD026 | Trailing punctuation in heading (`## Title.`) |
+| MD032 | List not surrounded by blank lines |
+| MD034 | Bare URL (should be `[text](url)` or `` `url` ``) |
+| MD036 | Bold/italic used as heading instead of `##` |
+| MD039 | Bare link text ("here", "link", "click here") |
+| MD041 | First non-frontmatter line is not h1 |
+| MD047 | File doesn't end with single newline |
 
 ## Info
 
-- [ ] List without blank line above or below (MD032)
-- [ ] Table missing alignment markers
-- [ ] Trailing whitespace
+| Rule | Check |
+| --- | --- |
+| MD004 | Inconsistent unordered list marker (`-` vs `*` vs `+`) |
+| MD005 | Inconsistent list indent |
+| MD009 | Trailing whitespace |
+| MD012 | Multiple consecutive blank lines (>1) |
+| MD060 | Table separator missing spaces (`|---|---|`→`| --- | --- |`) |
 
-## Output
+## Content Checks (beyond markdownlint)
+
+- **Paragraph >4 sentences.** Split long paragraphs.
+- **Fillers.** very, just, actually, really, basically, note that.
+- **CAPS emphasis.** Use **bold**, not ALL CAPS.
+- **Empty section.** Heading immediately followed by another heading.
+- **Broken relative link.** Target file doesn't exist in the repo.
+
+## Output Format
 
 ```text
 ## Lint: <file>
 
 ### Critical (N)
-- L<line>: <issue> → <fix>
+- L<line>: <rule> <issue> → <fix>
 
 ### Warning (N)
-- L<line>: <issue> → <fix>
+- L<line>: <rule> <issue> → <fix>
 
 ### Info (N)
-- L<line>: <issue> → <fix>
+- L<line>: <rule> <issue> → <fix>
 
 **Summary:** X critical, Y warning, Z info — clean / needs fixes / major rework
 ```

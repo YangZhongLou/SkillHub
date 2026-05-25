@@ -37,7 +37,7 @@ main ←── rebase ── feature/x ── commits ── QA
 ## Branch Naming
 
 | Prefix | Use |
-|---|---|
+| --- | --- |
 | `feature/` | New functionality |
 | `fix/` | Bug fixes |
 | `refactor/` | Structural changes, no behavior change |

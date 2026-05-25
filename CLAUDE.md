@@ -9,7 +9,7 @@ Personal skill hub. Skills in `.agent/skills/`.
 ## Skills
 
 | Skill | Command | What it does |
-|---|---|---|
+| --- | --- | --- |
 | programmer | `/programmer` | Code style, workflow, debugging, refactoring, testing, review, language guides |
 | md-writer | `/md-writer` | Structured markdown writing with mandatory self-review |
 | md-lint | `/md-lint` | Check .md files for format issues |

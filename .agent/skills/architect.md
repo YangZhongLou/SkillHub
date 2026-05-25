@@ -27,7 +27,7 @@ metadata:
 ## Decision Framework
 
 | Dimension | Key question |
-|---|---|
+| --- | --- |
 | Scale | How many users/requests/bytes? At peak? In 2 years? |
 | Performance | What latency/throughput is acceptable? p50 and p99? |
 | Consistency | Strong, eventual, or causal? What happens during partition? |
@@ -77,7 +77,7 @@ metadata:
 
 ### Options
 | Option | Pros | Cons | Verdict |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | A | ... | ... | — |
 | B | ... | ... | ✓ pick |
 | C | ... | ... | — |

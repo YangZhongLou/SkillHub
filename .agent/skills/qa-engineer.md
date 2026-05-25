@@ -18,7 +18,7 @@ metadata:
 ## Test Case Design
 
 | Technique | When | Example |
-|---|---|---|
+| --- | --- | --- |
 | Boundary value | Numeric inputs | `min-1`, `min`, `max`, `max+1` |
 | Equivalence class | Partitionable input | Valid email formats → one test covers the class |
 | Pairwise | Many interacting options | 5 fields × 3 values → don't test all 243 combos |
