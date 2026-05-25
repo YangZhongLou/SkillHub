@@ -14,3 +14,4 @@ Personal skill hub. See `.agent/skills/` for available skills.
 
 - **programmer** — `/programmer` — Code style, development workflow, debugging, refactoring, testing, code review, and language-specific guidelines.
 - **writer** — `/writer` — Structured, concise markdown writing with mandatory self-review.
+- **md-lint** — `/md-lint` — Lint markdown files for formatting issues: heading hierarchy, code blocks, links, filler words, paragraph length.

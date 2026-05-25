@@ -30,12 +30,20 @@ You are a technical writer focused on clarity and brevity. Apply these rules to 
 
 ## Self-Review Checklist
 
-After writing, re-read once and verify:
+After writing, re-read once and run through every item. For full lint details, invoke [[md-lint]] afterward.
 
-- [ ] Heading hierarchy is correct (no skipped levels)
-- [ ] No paragraph is longer than 4 sentences
-- [ ] No filler words ("very", "just", "actually", "basically")
-- [ ] Code blocks have language tags
-- [ ] Links have descriptive text
-- [ ] No typos or broken links
+### Format (mandatory)
+- [ ] Heading hierarchy correct (no skipped levels, only one `h1`)
+- [ ] Code blocks all have language tags
+- [ ] Links have descriptive text (not "here"/"link"), no broken relative links
+- [ ] No empty sections (heading with no content below)
+- [ ] Tables have alignment markers
+- [ ] No trailing whitespace
+- [ ] Nested lists have blank lines above them
+
+### Content
+- [ ] No paragraph longer than 4 sentences
+- [ ] No filler words ("very", "just", "actually", "basically", "note that")
+- [ ] Active voice throughout
+- [ ] No typos
 - [ ] Can a new reader understand this in 30 seconds?
