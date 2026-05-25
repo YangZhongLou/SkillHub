@@ -1,12 +1,12 @@
 ---
 name: qa-engineer
-description: QA engineering skill. Use for test strategy, test case design, unit/integration/e2e testing, bug reporting, regression planning, and quality metrics.
+description: Invoke when planning tests, designing test cases, or investigating quality issues.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# qa-engineer
+# QA Engineer
 
 ## Test Strategy
 

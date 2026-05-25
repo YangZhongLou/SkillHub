@@ -1,12 +1,12 @@
 ---
 name: md-lint
-description: Comprehensive markdown linter. Checks headings, tables, lists, code blocks, links, whitespace, and content. Use when reviewing any .md file.
+description: Invoke when reviewing any .md file for formatting issues.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# md-lint
+# Markdown Linter
 
 Check `.md` files. Report: file, line, issue → fix. Group by severity.
 

@@ -1,12 +1,12 @@
 ---
 name: git-flow
-description: Standard git workflow: branch → commit → QA → rebase → merge → push. Use when starting new work, preparing to merge, or managing branches.
+description: Invoke when starting new work, preparing to merge, or managing branches.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# git-flow
+# Git Flow
 
 ## Workflow
 
@@ -71,7 +71,7 @@ git fetch origin
 git rebase origin/main
 # resolve conflicts if any
 git checkout main
-git merge feature/user-auth
+git merge --ff-only feature/user-auth
 git push origin main
 git branch -d feature/user-auth
 ```

@@ -1,12 +1,12 @@
 ---
 name: md-writer
-description: Structured, concise markdown writing with mandatory format self-review. Use for drafts, docs, READMEs, proposals, changelogs.
+description: Invoke when drafting docs, READMEs, proposals, or changelogs.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# md-writer
+# Markdown Writer
 
 ## Structure
 

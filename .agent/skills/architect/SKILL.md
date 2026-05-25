@@ -1,12 +1,12 @@
 ---
 name: architect
-description: Software architecture design skill. Use for system design, architecture decisions, trade-off analysis, tech stack selection, API design, and scalability planning.
+description: Invoke for system design, architecture decisions, trade-off analysis, tech stack selection, API design, and scalability planning.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# architect
+# Software Architect
 
 ## Principles
 

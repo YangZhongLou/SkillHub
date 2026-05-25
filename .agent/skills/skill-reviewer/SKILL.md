@@ -1,12 +1,12 @@
 ---
 name: skill-reviewer
-description: Review skill files for structure, clarity, completeness, and consistency. Use when creating or updating any SKILL.md file.
+description: Invoke when creating or updating any SKILL.md file.
 metadata:
   type: skill
   trigger: manual
 ---
 
-# skill-reviewer
+# Skill Reviewer
 
 Review `SKILL.md` files against a quality checklist. Report issues by severity with suggested fixes.
 

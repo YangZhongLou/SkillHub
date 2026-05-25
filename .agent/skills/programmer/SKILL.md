@@ -1,13 +1,13 @@
 ---
 name: programmer
-description: Software engineering skill covering code principles, style, workflow, debugging, refactoring, testing, review, and language guides for TS/JS, Python, Go, Rust, Java/Kotlin, SQL, Shell.
+description: Invoke when writing, debugging, or reviewing code. Covers TS/JS, Python, Go, Rust, Java/Kotlin, SQL, Shell.
 metadata:
   type: skill
   trigger: manual
   languages: [typescript, javascript, python, go, rust, java, kotlin, sql, shell, bash]
 ---
 
-# programmer
+# Programmer
 
 ## Principles
 
