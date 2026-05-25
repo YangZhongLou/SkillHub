@@ -23,7 +23,7 @@ Apply to every `.md` file.
 ## Formatting
 
 - **Bold** for emphasis, not CAPS or _italics_.
-- Code blocks: `` ```python ``, never bare `` ``` ``.
+- Code blocks: ```` ```python ````, never bare ```` ``` ````.
 - Inline code: `` `file.py` ``, `` `--flag` ``.
 - Links: `[descriptive text](url)`, never `[here](url)`.
 
