@@ -1,5 +1,5 @@
 ---
-name: writer
+name: md-writer
 description: Structured, concise markdown writing with mandatory format self-review. Use for drafts, docs, READMEs, proposals, changelogs.
 metadata:
   type: skill
