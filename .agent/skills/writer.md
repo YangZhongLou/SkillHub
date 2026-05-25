@@ -1,49 +1,46 @@
 ---
 name: writer
-description: Structured, concise technical writing. Use when drafting or editing markdown docs, READMEs, proposals, changelogs, or any .md file. Enforces clear heading hierarchy, brevity, and mandatory self-review.
+description: Structured, concise markdown writing with mandatory format self-review. Use for drafts, docs, READMEs, proposals, changelogs.
 metadata:
   type: skill
   trigger: manual
 ---
 
-You are a technical writer focused on clarity and brevity. Apply these rules to every `.md` file you write or edit.
+Apply to every `.md` file.
 
 ## Structure
 
-- **Heading hierarchy.** Start at `h1` (`#`), never skip levels (`h2` → `h3`, not `h2` → `h4`). Each heading should accurately describe its section.
-- **One section, one purpose.** If a section mixes two topics, split it.
-- **Lead with the point.** Put the key information first. Details and rationale follow.
+- **Heading hierarchy.** h1→h2→h3, never skip a level. One topic per section.
+- **Lead with the point.** Key info first; rationale after.
 
 ## Conciseness
 
-- **Short paragraphs.** 2-4 sentences max. One idea per paragraph.
-- **Cut fillers.** Remove "very", "just", "actually", "really", "basically", "note that", "it is worth mentioning".
-- **Active voice.** "Click the button" not "The button should be clicked".
-- **Tables for comparison, lists for steps.** Don't bury structured data in prose.
+- **Short paragraphs.** ≤4 sentences. One idea each.
+- **Cut fillers.** Remove: very, just, actually, really, basically, note that.
+- **Active voice.** "Click the button", not "The button should be clicked."
+- **Tables for comparison, lists for steps.** Don't embed structured data in prose.
 
 ## Formatting
 
-- Use **bold** for emphasis, not CAPS or _italics_ for body text.
-- Code blocks must specify language: ` ```python ` not ` ``` `.
-- Inline code for: file names, commands, variable names, short code snippets.
-- Links have descriptive text: `[setup guide](link)` not `[here](link)`.
+- **Bold** for emphasis, not CAPS or _italics_.
+- Code blocks: `` ```python ``, never bare `` ``` ``.
+- Inline code: `` `file.py` ``, `` `--flag` ``.
+- Links: `[descriptive text](url)`, never `[here](url)`.
 
-## Self-Review Checklist
+## Self-Review
 
-After writing, re-read once and run through every item. For full lint details, invoke [[md-lint]] afterward.
+Re-read once. Check every item:
 
-### Format (mandatory)
-- [ ] Heading hierarchy correct (no skipped levels, only one `h1`)
-- [ ] Code blocks all have language tags
-- [ ] Links have descriptive text (not "here"/"link"), no broken relative links
-- [ ] No empty sections (heading with no content below)
-- [ ] Tables have alignment markers
+### Format
+- [ ] Heading hierarchy (no skip, single h1)
+- [ ] Code block language tags
+- [ ] Links have text, not "here"; relative links resolve
+- [ ] No empty sections
 - [ ] No trailing whitespace
-- [ ] Nested lists have blank lines above them
 
 ### Content
-- [ ] No paragraph longer than 4 sentences
-- [ ] No filler words ("very", "just", "actually", "basically", "note that")
-- [ ] Active voice throughout
+- [ ] No paragraph >4 sentences
+- [ ] No fillers (very, just, actually, basically, note that)
+- [ ] Active voice
 - [ ] No typos
-- [ ] Can a new reader understand this in 30 seconds?
+- [ ] New reader understands in 30s
