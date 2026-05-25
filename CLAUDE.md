@@ -1,6 +1,6 @@
 # SkillHub
 
-Personal skill hub. See `.claude/skills/` for available skills.
+Personal skill hub. See `.agent/skills/` for available skills.
 
 ## Skills
 
