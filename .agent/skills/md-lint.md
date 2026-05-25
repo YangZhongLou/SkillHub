@@ -6,6 +6,8 @@ metadata:
   trigger: manual
 ---
 
+# md-lint
+
 ## Critical
 
 - [ ] Skipped heading level (`##` → `####`)

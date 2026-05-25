@@ -6,6 +6,8 @@ metadata:
   trigger: manual
 ---
 
+# md-writer
+
 ## Structure
 
 - **Heading hierarchy.** h1→h2→h3, never skip a level. One topic per section.

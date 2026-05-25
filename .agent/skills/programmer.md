@@ -7,6 +7,8 @@ metadata:
   languages: [typescript, javascript, python, go, rust, java, kotlin, sql, shell, bash]
 ---
 
+# programmer
+
 ## Principles
 
 - **Simplicity.** Simplest solution first. No premature abstraction.

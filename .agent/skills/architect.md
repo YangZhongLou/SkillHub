@@ -6,6 +6,8 @@ metadata:
   trigger: manual
 ---
 
+# architect
+
 ## Principles
 
 - **Simplicity.** Start with the simplest architecture that meets requirements. Add complexity only when the need is proven.
