@@ -15,4 +15,4 @@ Personal skill hub. Skills in `.agent/skills/`.
 | md-lint | `/md-lint` | Check .md files for format issues |
 | architect | `/architect` | System design, architecture decisions, trade-off analysis, API design |
 | git-flow | `/git-flow` | Branch → commit → rebase → merge workflow |
-| unit-test | `/unit-test` | Unit test structure, naming, mocking, coverage, anti-patterns |
+| qa-engineer | `/qa-engineer` | Unit test structure, naming, mocking, coverage, anti-patterns |

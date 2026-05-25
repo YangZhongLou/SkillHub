@@ -1,6 +1,6 @@
 ---
-name: unit-test
-description: Unit testing skill. Use when writing, reviewing, or fixing tests. Covers test structure, naming, assertions, mocking, coverage, and test-driven workflow.
+name: qa-engineer
+description: QA engineering skill. Use when writing, reviewing, or fixing tests. Covers test structure, naming, assertions, mocking, coverage, and test-driven workflow.
 metadata:
   type: skill
   trigger: manual
