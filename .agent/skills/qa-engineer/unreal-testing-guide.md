@@ -7,7 +7,7 @@
 Mock 测试只能验证 Rust→TCP→JSON 链路，以下问题 **只有真实 UE Editor 才能暴露**：
 
 | 坑 | 症状 | 发现手段 |
-|----|------|----------|
+| --- | --- | --- |
 | **GameThread 限制** | UE API (SpawnActor, NewLevel, Destroy, etc.) 必须在 GameThread 调用。从 MCP 子线程直接调用 → `Assertion failed: IsInGameThread()` 崩溃 | 真实 UE 编译运行 |
 | **API 兼容性** | UE 5.4→5.7 间 `ANY_PACKAGE`→`FindFirstObject`、`bIsArray`→`ContainerType`、`FConsoleObjectVisitor` lambda→delegate 等 API 变化 | 真实 UE 编译 |
 | **弹窗死锁** | `NewLevel` 内部调 `SaveDirtyPackages(bPromptUserToSave=true)` → 弹出「是否保存」对话框 → GameThread 阻塞 → MCP 线程永久等待 GameThread → 死锁 | 真实启动 Editor |
@@ -86,7 +86,7 @@ LS->NewLevel(Path);
 ## UE 5.4→5.7 API 适配清单
 
 | 旧 API (5.4) | 新 API (5.7) | 影响范围 |
-|--------------|-------------|----------|
+| --- | --- | --- |
 | `FindObject<T>(ANY_PACKAGE, *Name)` | `FindFirstObject<T>(*Name)` | ActorCommands, BlueprintCommands |
 | `FEdGraphPinType::bIsArray` | `ContainerType = EPinContainerType::Array` | BlueprintCommands |
 | `FBlueprintEditorUtils::AddFunctionGraph(..., nullptr)` | `AddFunctionGraph(..., (UFunction*)nullptr)` | BlueprintCommands |

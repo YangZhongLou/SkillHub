@@ -88,7 +88,6 @@ No "it doesn't work." No "sometimes." Be specific enough that anyone can reprodu
 | **真实 UE 环境测试** | `MCP_Server/tests/test_real_ue.rs` | `#[ignore]` 标记，**每 tool 必须手跑通过** |
 
 > 详细指南、线程派发模式、API 适配清单、常见陷阱 → **[unreal-testing-guide.md](unreal-testing-guide.md)**
-```
 
 ## Anti-Patterns
 
