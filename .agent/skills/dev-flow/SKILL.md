@@ -1,6 +1,6 @@
 ---
 name: dev-flow
-description: UnrealMCP 6-phase development workflow. Each phase has 3 sub-steps: Plan→Review→Work. Mandatory pipeline: Plan→Architect→Implement→Test→Document→Commit.
+description: UnrealMCP 6-phase development workflow. Each phase: Plan⇄Review(plan)→Work⇄Review(result), dual review gates. Mandatory pipeline: Brainstorm→Architect→Implement→Test→Document→Commit.
 metadata:
   type: skill
   trigger: manual
@@ -11,8 +11,7 @@ metadata:
 ## Principles
 
 - **Phase order is mandatory.** Never skip a phase. Never skip a sub-step.
-- **Sub-step cycle: Plan → Review → Work.** Plan what to do, review the plan, then execute.
-- **Backflow within phase.** Any sub-step reveals a flawed plan → back to that phase's Plan.
+- **Sub-step cycle: Plan ⇄ Review(plan) → Work ⇄ Review(result).** Two review gates — plan review loops to Plan, result review loops to Work. Only proceed when both pass.
 - **Three files per tool.** `<Category>Commands.cpp` + `MCPCommandServer.cpp` + `server.rs`.
 - **JSON camelCase always.** C++ `TEXT("camelCase")`, Rust `json!({"camelCase": v})`.
 - **Every response has `"success"`.** Non-negotiable.
@@ -20,10 +19,13 @@ metadata:
 ## Pipeline
 
 ```
-1.Plan → 2.Architect → 3.Implement → 4.Test → 5.Document → 6.Commit
-  ↑         │               │             │            │
-  └─────────┴───────────────┴─────────────┴────────────┘
-             子步骤失败，打回该阶段 Plan
+每个阶段: Plan ⇄ Review(计划) → 通过 → Work ⇄ Review(结果) → 通过 → 下一阶段
+
+1.Brainstorm ─▶ 2.Architect ─▶ 3.Implement ─▶ 4.Test ─▶ 5.Document ─▶ 6.Commit
+      ▲               ▲               ▲            ▲            ▲
+      │               │               │            │            │
+      └───────────────┴───────────────┴────────────┴────────────┘
+        任一 Review 不通过 → 打回对应步骤重做 (Plan 或 Work)
 ```
 
 | Phase | Skill | Plan | Review | Work | Gate |

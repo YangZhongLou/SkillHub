@@ -12,7 +12,7 @@
 - Priority: P0/P1/P2/P3
 - Update `docs/plan/current-status.md`
 
-### Review
+### Review (计划)
 - Each task <1 day? Binary done criteria?
 - NOT-in-scope explicit?
 - Riskiest items first?
@@ -21,6 +21,12 @@
 ### Work
 - Use `TaskCreate` to build task list
 - Output: task list (priority, estimate, exit criteria)
+
+### Review (结果)
+- Task list complete? All items have clear done criteria?
+- Estimates reasonable? Dependencies captured?
+- PM agrees on priorities?
+- **Gate:** Gaps found → back to Work
 
 ## Phase 2: Architect
 
@@ -31,7 +37,7 @@
 - API params and return types
 - C++ ↔ Rust JSON protocol (field names, types)
 
-### Review
+### Review (计划)
 - UE Editor API supports required functionality?
 - Architecture conflicts with existing code?
 - Correct Commands.cpp file?
@@ -39,6 +45,12 @@
 
 ### Work
 - Output: API signatures + data flow + file change manifest
+
+### Review (结果)
+- API signatures complete and self-consistent?
+- Data flow covers all edge cases?
+- File change manifest lists all affected files?
+- **Gate:** Gaps found → back to Work
 
 ## Phase 3: Implement
 
@@ -48,7 +60,7 @@
 - Function skeleton: signatures, param parsing, return format
 - Identify the 3 target files
 
-### Review
+### Review (计划)
 - Signatures match architecture design?
 - JSON naming: C++ camelCase, Rust snakeCase→camelCase?
 - `send_command` name matches C++ dispatch?
@@ -65,6 +77,13 @@
 - `cd MCP_Server && cargo build`
 - Mark each task completed
 
+### Review (结果)
+- `cargo build` passes with no errors or warnings?
+- All 3 files modified? No missing dispatch case?
+- JSON response format correct (always has `"success"`)?
+- Code follows conventions (TEXT() macro, camelCase keys)?
+- **Gate:** Issues found → back to Work
+
 ## Phase 4: Test
 
 **Skill: `/qa-engineer`**
@@ -73,7 +92,7 @@
 - Test cases: required params, optional params, invalid params, edge cases
 - Verification method: unit test / cargo build / UE Editor / `/verify`
 
-### Review
+### Review (计划)
 - All param combinations covered? Error paths?
 - **Gate:** Coverage gaps → back to Plan
 
@@ -83,6 +102,12 @@
 - Functional: missing required → error, invalid → error, valid → expected
 - UI validation: use `/verify` if needed
 
+### Review (结果)
+- All mock tests pass? Real UE tests pass (where applicable)?
+- Error cases produce correct error messages?
+- Edge cases handled correctly?
+- **Gate:** Failures found → back to Work
+
 ## Phase 5: Document
 
 **Skill: `/md-writer`**
@@ -90,7 +115,7 @@
 ### Plan
 - Which docs need updating?
 
-### Review
+### Review (计划)
 - Doc list complete? Any gaps?
 - **Gate:** Missing docs → back to Plan
 
@@ -108,6 +133,12 @@
 
 - `/md-lint` on all .md files
 
+### Review (结果)
+- All 7 docs updated and consistent?
+- `/md-lint` passes with no errors?
+- No stale references or outdated info?
+- **Gate:** Issues found → back to Work
+
 ## Phase 6: Commit
 
 **Skill: `/git-flow`**
@@ -115,7 +146,7 @@
 ### Plan
 - `git status`, `git diff --stat`
 
-### Review
+### Review (计划)
 - Unexpected files? Secrets? Large binaries?
 - **Gate:** Suspicious diff → back to Plan
 
@@ -123,3 +154,9 @@
 - `git add` by exact file (never `-A`)
 - Commit: `feat: Complete Phase <N> - <Description>`
 - `git push` (auto, no confirmation needed)
+
+### Review (结果)
+- Commit pushed successfully? CI passing?
+- Commit message follows convention?
+- No unintended files in commit?
+- **Gate:** Issues found → back to Work
