@@ -39,6 +39,9 @@ Re-read once. Check every item:
 - [ ] No empty sections
 - [ ] Table separator has spaces (`| --- |`)
 - [ ] No trailing whitespace
+- [ ] Blank line before AND after every heading (MD022)
+- [ ] Code fences surrounded by blank lines (MD031)
+- [ ] Lists surrounded by blank lines (MD032)
 
 ### Content
 
@@ -47,3 +50,7 @@ Re-read once. Check every item:
 - [ ] Active voice
 - [ ] No typos
 - [ ] New reader understands in 30s
+
+### Lint
+
+**写完文档后必须立即跑 `/markdown-linter` 检查所有改动的 `.md` 文件。** 自检清单不能替代 linter，linter 会补上人容易漏的 blank-lines-around-headings/fences/lists。
