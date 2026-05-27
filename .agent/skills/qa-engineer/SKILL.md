@@ -76,6 +76,63 @@ No "it doesn't work." No "sometimes." Be specific enough that anyone can reprodu
 - [ ] New code has corresponding tests
 - [ ] Coverage on changed files ≥ baseline
 
+---
+
+## UnrealMCP 专项规则 (MUST)
+
+### 两层测试体系
+
+每个新 MCP tool **必须通过两层测试**，缺一不可：
+
+| 层 | 位置 | 说明 | Gate |
+|----|------|------|------|
+| **Mock 集成测试** | `MCP_Server/tests/test_unreal_client.rs` | 用 `mock_unreal_server.rs` 模拟 UE 端 TCP 响应，验证 Rust→JSON 链路。每个新 tool 追加 1 个测试函数。 | 全部通过 |
+| **真实 UE 环境测试** | `MCP_Server/tests/test_real_ue.rs` | 编译 UnrealMCP 插件为 DLL，启动真实 `UnrealEditor.exe`（窗口化），Rust `UnrealClient` 直连 `127.0.0.1:13377`，验证 Rust→TCP→C++→UE API 完整链路。 | `#[ignore]` 标记，**每 tool 必须手跑通过** |
+
+### 真实 UE 测试流程
+
+```
+1. 确保测试工程存在（不存在则自动创建）
+   → D:\Playground\UEMCPTest\UEMCPTest.uproject (UE 5.7)
+   → Plugins/UnrealMCP 为 Junction → repo UnrealPlugin
+
+2. 编译插件
+   UnrealBuildTool.exe UEMCPTestEditor Win64 Development -project="D:\Playground\UEMCPTest\UEMCPTest.uproject"
+
+3. 启动 UE Editor（非最小化！最小化会导致 Slate 事件阻塞死锁）
+   UnrealEditor.exe D:\Playground\UEMCPTest\UEMCPTest.uproject
+
+4. 等待 TCP:13377 就绪后跑测试
+   cargo test --test test_real_ue -- --ignored --nocapture
+
+5. 验证通过后关闭编辑器
+```
+
+### 为什么必须真机测试
+
+- **GameThread 限制** — UE API (NewLevel, SaveLevel, SpawnActor 等) 只能在 GameThread 调用。MCP Server 运行在独立线程，C++ 代码能不能正确处理线程派发，Mock 测不出来。
+- **API 兼容性** — 不同 UE 版本 API 不同（ANY_PACKAGE→FindFirstObject, bIsArray→ContainerType, delegate vs lambda 等）。Mock 不涉及真实 UE 编译。
+- **弹窗死锁** — 某些 UE API 内部会弹出保存/确认对话框，导致 GameThread 阻塞死锁。只有真实启动 Editor 才能发现。
+- **编译才是真实 gate** — Mock 测试只验证了 Rust 侧 TCP 通信，C++ 侧代码只有在 UE Editor 中编译并运行才能确认正确。
+
+### 真实测试模板
+
+```rust
+// tests/test_real_ue.rs
+#[tokio::test]
+#[ignore]  // 必须标记 #[ignore]，不在 CI 自动运行
+async fn test_real_ue_<tool_name>() {
+    let mut client = UnrealClient::new("127.0.0.1:13377");
+
+    let response = client.send_command("<method>", json!({
+        "<param>": "<value>"
+    })).await.unwrap();
+
+    assert_eq!(response["success"], true);
+    // ... further assertions
+}
+```
+
 ## Anti-Patterns
 
 - **Testing the framework.** Don't verify that libraries work.
