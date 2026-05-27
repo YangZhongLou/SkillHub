@@ -120,3 +120,6 @@ async fn test_real_ue_<tool_name>() {
 3. **关卡残留** — 上轮测试崩溃后编辑器可能处于坏状态，务必 `Stop-Process -Force` 并清 `Saved/`
 4. **CrashReportClient 锁 DLL** — 编辑器崩溃后该进程保持 DLL 文件句柄，导致下次链接失败。必须同时杀掉
 5. **端口 TIME_WAIT** — 杀编辑器后等 3-5 秒等端口释放
+6. **delete_asset 不支持地图资产** — 关卡 (.umap) 需要用 `FPackageName` + `IFileManager::Delete`，不能用 `UEditorAssetLibrary::DeleteAsset`
+7. **编辑器状态恢复** — 状态变更测试（view mode, stat, key simulation）必须在测试末尾恢复原始状态
+8. **测试质量分层** — 写操作必须用 set→get 验证（深度），读操作可以只验证不崩（浅层）。不能所有测试都用 `success=true` 打发
