@@ -20,3 +20,4 @@ Personal skill hub. Skills in `.agent/skills/`.
 | qa-engineer | `/qa-engineer` | Test strategy, case design, bug reporting, quality gates |
 | refactor | `/refactor` | Restructure code without changing behavior — simplify, deduplicate, improve design |
 | skill-reviewer | `/skill-reviewer` | Review SKILL.md files for structure, clarity, completeness, quality |
+| dev-flow | `/dev-flow` | UnrealMCP 7-phase development workflow with 3-step tool template |
