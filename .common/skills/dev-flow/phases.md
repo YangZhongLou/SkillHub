@@ -1,6 +1,6 @@
 # Phase Details
 
-> **Blackboard Protocol**: Every phase starts with **Read** `.agent/status/blackboard.md` and ends with **Update** `.agent/status/blackboard.md` if state changed.
+> **Blackboard Protocol**: Every phase starts with **Read** `.common/status/blackboard.md` and ends with **Update** `.common/status/blackboard.md` if state changed.
 
 ## Phase 1: Plan
 

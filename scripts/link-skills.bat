@@ -1,6 +1,6 @@
 @echo off
 set "LINK=.claude\skills"
-set "TARGET=.agent\skills"
+set "TARGET=.common\skills"
 
 if /i "%1"=="remove" goto :remove
 if /i "%1"=="/remove" goto :remove

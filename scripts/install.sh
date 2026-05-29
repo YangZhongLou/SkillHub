@@ -10,7 +10,7 @@ HUB_DIR="$(dirname "$SCRIPT_DIR")"
 
 if [ -z "$TARGET" ]; then
   echo "Usage: ./install.sh <target-project-dir>"
-  echo "  Copies .agent/skills, merges CLAUDE.md and .claude/settings.json into the target."
+  echo "  Copies .common/skills, merges CLAUDE.md and .claude/settings.json into the target."
   exit 1
 fi
 
@@ -22,10 +22,10 @@ fi
 echo "==> SkillHub install to $TARGET"
 
 # 1. Copy skills
-if [ -d "$HUB_DIR/.agent" ]; then
-  mkdir -p "$TARGET/.agent"
-  cp -r "$HUB_DIR/.agent/skills" "$TARGET/.agent/"
-  echo "    .agent/skills/ copied"
+if [ -d "$HUB_DIR/.common" ]; then
+  mkdir -p "$TARGET/.common"
+  cp -r "$HUB_DIR/.common/skills" "$TARGET/.common/"
+  echo "    .common/skills/ copied"
 fi
 
 # 2. Merge CLAUDE.md
@@ -54,4 +54,4 @@ if [ -f "$HUB_DIR/.claude/settings.json" ]; then
   fi
 fi
 
-echo "==> Done. Skills available: $(ls "$TARGET/.agent/skills" | sed 's/\.md//g' | tr '\n' ' ')"
+echo "==> Done. Skills available: $(ls "$TARGET/.common/skills" | sed 's/\.md//g' | tr '\n' ' ')"

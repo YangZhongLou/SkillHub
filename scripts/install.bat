@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 if "%~1"=="" (
   echo Usage: install.bat ^<target-project-dir^>
-  echo   Copies .agent/skills, merges CLAUDE.md and .claude/settings.json into the target.
+  echo   Copies .common/skills, merges CLAUDE.md and .claude/settings.json into the target.
   exit /b 1
 )
 
@@ -18,10 +18,10 @@ if not exist "%TARGET%\" (
 echo ==^> SkillHub install to %TARGET%
 
 :: 1. Copy skills
-if exist "%HUB_DIR%\.agent\" (
-  if not exist "%TARGET%\.agent\" mkdir "%TARGET%\.agent"
-  xcopy /E /I /Y "%HUB_DIR%\.agent\skills" "%TARGET%\.agent\skills" >nul
-  echo     .agent/skills/ copied
+if exist "%HUB_DIR%\.common\" (
+  if not exist "%TARGET%\.common\" mkdir "%TARGET%\.common"
+  xcopy /E /I /Y "%HUB_DIR%\.common\skills" "%TARGET%\.common\skills" >nul
+  echo     .common/skills/ copied
 )
 
 :: 2. Merge CLAUDE.md

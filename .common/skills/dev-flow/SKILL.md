@@ -12,7 +12,7 @@ metadata:
 
 - **Phase order is mandatory.** Never skip a phase. Never skip a sub-step.
 - **Sub-step cycle: Plan ⇄ Review(plan) → Work ⇄ Review(result).** Two review gates — plan review loops to Plan, result review loops to Work. Only proceed when both pass.
-- **Blackboard first.** Read `.agent/status/blackboard.md` before every phase. Update it after every phase that changes state.
+- **Blackboard first.** Read `.common/status/blackboard.md` before every phase. Update it after every phase that changes state.
 - **Three files per tool.** `<Category>Commands.cpp` + `MCPCommandServer.cpp` + `server.rs`.
 - **JSON camelCase always.** C++ `TEXT("camelCase")`, Rust `json!({"camelCase": v})`.
 - **Every response has `"success"`.** Non-negotiable.
@@ -33,8 +33,8 @@ metadata:
 
 **每个阶段的入口和出口：**
 
-1. **进入阶段前** — 读取 `.agent/status/blackboard.md`，了解当前状态、阻塞项、已有决策
-2. **阶段完成后** — 更新 `.agent/status/blackboard.md`：
+1. **进入阶段前** — 读取 `.common/status/blackboard.md`，了解当前状态、阻塞项、已有决策
+2. **阶段完成后** — 更新 `.common/status/blackboard.md`：
    - 更新 `updated` 时间戳
    - 更新当前 Phase 的 Status（`in-progress` → `done` 或 `blocked`）
    - 追加 `Recent Changes` 记录

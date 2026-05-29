@@ -128,7 +128,7 @@ Never log a risk without a mitigation. Risks without mitigations are just compla
 
 ## Blackboard（黑板报）
 
-**位置**: `<project>/.agent/status/blackboard.md`
+**位置**: `<project>/.common/status/blackboard.md`
 
 ### 协议（所有技能必须遵守）
 
