@@ -53,4 +53,4 @@ Re-read once. Check every item:
 
 ### Lint
 
-**写完文档后必须立即跑 `/markdown-linter` 检查所有改动的 `.md` 文件。** 自检清单不能替代 linter，linter 会补上人容易漏的 blank-lines-around-headings/fences/lists。
+**写完文档后 markdown-linter hook 会自动触发检查。** `.md` 文件 Edit/Write 完成后，PostToolUse hook 会自动读取文件并对照 lint 规则反馈问题。自检清单用作写稿时的实时参考。
