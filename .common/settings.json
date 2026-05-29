@@ -33,5 +33,26 @@
       "PowerShell(Clear-Content)",
       "PowerShell(Clear-RecycleBin)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Edit(*.md)",
+            "command": "python -c \"import sys,json,re,os; d=json.load(sys.stdin); p=d.get('tool_input',{}).get('file_path',''); sys.exit(0) if not p.endswith('.md') else None; c=open(p,encoding='utf-8').read(); lines=c.split('\\n'); issues=[]; prev_h=0\n# Check heading hierarchy\nfor i,l in enumerate(lines,1):\n  m=re.match(r'^(#{1,6})\\s',l)\n  if m:\n    level=len(m.group(1))\n    if level-prev_h>1 and prev_h>0: issues.append(f'L{i}: MD001 skipped heading level (h{prev_h} -> h{level})')\n    prev_h=level\n# Check trailing whitespace\nfor i,l in enumerate(lines,1):\n  if l.endswith(' ') or l.endswith('\\t'): issues.append(f'L{i}: MD009 trailing whitespace')\n# Check multiple blank lines\nfor i,l in enumerate(lines,1):\n  if l=='' and i<len(lines) and lines[i]=='': issues.append(f'L{i}: MD012 multiple consecutive blank lines')\n# Check code block language\nin_block=False\nfor i,l in enumerate(lines,1):\n  if l.startswith('```') and not in_block:\n    in_block=True\n    if l=='```': issues.append(f'L{i}: MD040 code block without language tag')\n  elif l.startswith('```'): in_block=False\nif issues:\n  rpt='## Lint: '+os.path.basename(p)+'\\n\\n'\n  rpt+='### Warning ('+str(len(issues))+')\\n'\n  for x in issues: rpt+='- '+x+'\\n'\n  print(json.dumps({'hookSpecificOutput':{'hookEventName':'PostToolUse','additionalContext':rpt}}))\nelse:\n  print(json.dumps({'hookSpecificOutput':{'hookEventName':'PostToolUse','additionalContext':'## Lint: '+os.path.basename(p)+' \\u2014 clean \\u2713'}}))\"",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "if": "Write(*.md)",
+            "command": "python -c \"import sys,json,re,os; d=json.load(sys.stdin); p=d.get('tool_input',{}).get('file_path',''); sys.exit(0) if not p.endswith('.md') else None; c=open(p,encoding='utf-8').read(); lines=c.split('\\n'); issues=[]; prev_h=0\n# Check heading hierarchy\nfor i,l in enumerate(lines,1):\n  m=re.match(r'^(#{1,6})\\s',l)\n  if m:\n    level=len(m.group(1))\n    if level-prev_h>1 and prev_h>0: issues.append(f'L{i}: MD001 skipped heading level (h{prev_h} -> h{level})')\n    prev_h=level\n# Check trailing whitespace\nfor i,l in enumerate(lines,1):\n  if l.endswith(' ') or l.endswith('\\t'): issues.append(f'L{i}: MD009 trailing whitespace')\n# Check multiple blank lines\nfor i,l in enumerate(lines,1):\n  if l=='' and i<len(lines) and lines[i]=='': issues.append(f'L{i}: MD012 multiple consecutive blank lines')\n# Check code block language\nin_block=False\nfor i,l in enumerate(lines,1):\n  if l.startswith('```') and not in_block:\n    in_block=True\n    if l=='```': issues.append(f'L{i}: MD040 code block without language tag')\n  elif l.startswith('```'): in_block=False\nif issues:\n  rpt='## Lint: '+os.path.basename(p)+'\\n\\n'\n  rpt+='### Warning ('+str(len(issues))+')\\n'\n  for x in issues: rpt+='- '+x+'\\n'\n  print(json.dumps({'hookSpecificOutput':{'hookEventName':'PostToolUse','additionalContext':rpt}}))\nelse:\n  print(json.dumps({'hookSpecificOutput':{'hookEventName':'PostToolUse','additionalContext':'## Lint: '+os.path.basename(p)+' \\u2014 clean \\u2713'}}))\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
   }
 }
