@@ -1,2 +1,1 @@
-# Symlink / junction to .common/skills
-.claude/skills/
+.common/settings.local.json
