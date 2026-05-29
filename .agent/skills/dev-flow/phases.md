@@ -1,8 +1,13 @@
 # Phase Details
 
+> **Blackboard Protocol**: Every phase starts with **Read** `.agent/status/blackboard.md` and ends with **Update** `.agent/status/blackboard.md` if state changed.
+
 ## Phase 1: Plan
 
 **Skill: `/pm`**
+
+### Pre
+- Read blackboard: current milestone, active phase, blockers, past decisions
 
 ### Plan
 - Define goal: one sentence. What changes for the user?
@@ -10,7 +15,6 @@
 - Task breakdown (<1 day each, clear done condition)
 - Estimate: S(hours) / M(1-2d) / L(3-5d) / XL(must split)
 - Priority: P0/P1/P2/P3
-- Update `docs/plan/current-status.md`
 
 ### Review (计划)
 - Each task <1 day? Binary done criteria?
@@ -28,9 +32,15 @@
 - PM agrees on priorities?
 - **Gate:** Gaps found → back to Work
 
+### Post
+- Update blackboard: set Phase 1 status → `done`, add task list summary to `Recent Changes`
+
 ## Phase 2: Architect
 
 **Skill: `/architect`**
+
+### Pre
+- Read blackboard: task list, scope boundary, any architectural decisions already recorded
 
 ### Plan
 - Affected files and modules
@@ -52,9 +62,15 @@
 - File change manifest lists all affected files?
 - **Gate:** Gaps found → back to Work
 
+### Post
+- Update blackboard: record API decisions in `Decisions`, update Phase 2 status → `done`
+
 ## Phase 3: Implement
 
 **Skill: `/programmer`**
+
+### Pre
+- Read blackboard: architecture decisions, API signatures, target files
 
 ### Plan
 - Function skeleton: signatures, param parsing, return format
@@ -84,9 +100,16 @@
 - Code follows conventions (TEXT() macro, camelCase keys)?
 - **Gate:** Issues found → back to Work
 
+### Post
+- Update blackboard: record new tools/files in `Recent Changes`, update Phase 3 status → `done`
+- If bugs found: add to `Risk Board`
+
 ## Phase 4: Test
 
 **Skill: `/qa-engineer`**
+
+### Pre
+- Read blackboard: what was implemented, known risks, test coverage expectations
 
 ### Plan
 - Test cases: required params, optional params, invalid params, edge cases
@@ -108,9 +131,15 @@
 - Edge cases handled correctly?
 - **Gate:** Failures found → back to Work
 
+### Post
+- Update blackboard: record test results, update `Risk Board` with any new findings, update Phase 4 status → `done`
+
 ## Phase 5: Document
 
 **Skill: `/md-writer`**
+
+### Pre
+- Read blackboard: what changed, what decisions were made, what risks were found
 
 ### Plan
 - Which docs need updating?
@@ -139,9 +168,15 @@
 - No stale references or outdated info?
 - **Gate:** Issues found → back to Work
 
+### Post
+- Update blackboard: record docs updated in `Recent Changes`, update Phase 5 status → `done`
+
 ## Phase 6: Commit
 
 **Skill: `/git-flow`**
+
+### Pre
+- Read blackboard: confirm all prior phases `done`, no unrecorded blockers
 
 ### Plan
 - `git status`, `git diff --stat`
@@ -160,3 +195,6 @@
 - Commit message follows convention?
 - No unintended files in commit?
 - **Gate:** Issues found → back to Work
+
+### Post
+- Update blackboard: set milestone/phase status → `done`, update `Recent Changes` with commit summary, final `updated` timestamp

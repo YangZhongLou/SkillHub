@@ -126,6 +126,57 @@ Never log a risk without a mitigation. Risks without mitigations are just compla
 - <risk> → <mitigation>
 ```
 
+## Blackboard（黑板报）
+
+**位置**: `<project>/.agent/status/blackboard.md`
+
+### 协议（所有技能必须遵守）
+
+1. **执行前检查** — 每个技能/命令在开始执行前，必须读取 `blackboard.md`，了解当前里程碑/Phase/阻塞项
+2. **执行后更新** — 执行完成后如果有进度变化，必须更新 `blackboard.md`（状态变更/新增产出/发现风险）
+3. **更新字段**: `updated`（ISO 时间戳）、受影响 Phase 的 `Status`、`Recent Changes`、`Risk Board`
+4. **不更新** — 如果执行未产生任何变化，则跳过更新
+
+### Blackboard 结构
+
+```markdown
+---
+updated: <ISO timestamp>
+phase: <current phase number>
+---
+
+# Blackboard — <project>
+
+## Current Milestone
+| Phase | 内容 | Status |
+|-------|------|--------|
+| P<n> | <description> | done / in-progress / pending / blocked |
+
+## Active Work
+- Current Phase / Step / Blockers
+
+## Recent Changes
+| Date | What |
+
+## Risk Board
+| Risk | Likelihood | Impact | Mitigation |
+
+## Decisions
+- 记录重要决策及原因
+```
+
+### 状态流转
+
+```
+pending → in-progress → done
+                ↘ blocked → in-progress
+```
+
+- **pending**: 尚未开始
+- **in-progress**: 当前正在执行（同时只有一个 Phase 处于 in-progress）
+- **done**: 完成并通过 Review
+- **blocked**: 被外部因素阻塞，需记录 Blocker 原因
+
 ## Anti-Patterns
 
 - **Everything is P1.** If everything is urgent, nothing is. Force rank.

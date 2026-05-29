@@ -21,3 +21,4 @@ Personal skill hub. Skills in `.agent/skills/`.
 | refactor | `/refactor` | Restructure code without changing behavior — simplify, deduplicate, improve design |
 | skill-reviewer | `/skill-reviewer` | Review SKILL.md files for structure, clarity, completeness, quality |
 | dev-flow | `/dev-flow` | UnrealMCP 7-phase development workflow with 3-step tool template |
+| technical-artist | `/technical-artist` | UE material creation, shader development, visual effects prototyping via UnrealMCP |
