@@ -2,7 +2,7 @@
 name: qa-engineer
 description: Invoke when planning tests, designing test cases, or investigating quality issues.
 metadata:
-  type: skill
+  type: agent
   trigger: manual
 ---
 

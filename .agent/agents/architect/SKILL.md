@@ -2,7 +2,7 @@
 name: architect
 description: Invoke for system design, architecture decisions, trade-off analysis, tech stack selection, API design, and scalability planning.
 metadata:
-  type: skill
+  type: agent
   trigger: manual
 ---
 

@@ -1,8 +1,8 @@
 ---
 name: code-reviewer
-description: Code review skill. Invoke when reviewing code changes for correctness, safety, clarity, and completeness.
+description: Code review agent. Invoke when reviewing code changes for correctness, safety, clarity, and completeness.
 metadata:
-  type: skill
+  type: agent
   trigger: manual
 ---
 

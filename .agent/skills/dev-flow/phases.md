@@ -37,7 +37,7 @@
 
 ## Phase 2: Architect
 
-**Skill: `/architect`**
+**Agent: `/architect`**
 
 ### Pre
 - Read blackboard: task list, scope boundary, any architectural decisions already recorded
@@ -106,7 +106,7 @@
 
 ## Phase 4: Test
 
-**Skill: `/qa-engineer`**
+**Agent: `/qa-engineer`**
 
 ### Pre
 - Read blackboard: what was implemented, known risks, test coverage expectations
