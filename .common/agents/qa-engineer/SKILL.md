@@ -1,6 +1,6 @@
 ---
 name: qa-engineer
-description: Invoke when planning tests, designing test cases, or investigating quality issues.
+description: Invoke when planning tests, designing test cases, writing tests, or investigating quality issues.
 metadata:
   type: agent
   trigger: manual
@@ -29,25 +29,61 @@ metadata:
 ## Test Types
 
 ### Unit
+
 - Fast, isolated, deterministic. One concept per test.
 - `method_scenario_expected` naming. AAA structure.
-- Mock adapters, not third-party code. Wrap external deps first.
+- **Test behavior, not implementation.** Refactoring should not break tests.
+
+| Good test | Bad test |
+| --- | --- |
+| Fails for exactly one reason | Fails for 5 unrelated reasons |
+| Setup is obvious or extracted | 30 lines of mystery setup |
+| Tests one scenario | "Tests everything" (tests nothing) |
+| Still passes after refactor | Breaks when you rename a variable |
+| Name describes the behavior | `test_1`, `test_edge_case` |
+
+### External Dependencies
+
+- **Wrap in adapters.** Third-party APIs, databases, file systems → adapter interface.
+- **Mock adapters, not the library.** Mock your `PaymentGateway` interface, not Stripe's SDK.
+- **Fakes > mocks.** A fake in-memory DB is more reusable than 20 hand-rolled mock expectations.
+- **One mock per test.** More than 2-3 mocks signals over-coupled code.
+
+### Characterization Tests
+
+For legacy code without tests:
+1. Observe current behavior (even if it seems wrong).
+2. Write a test that encodes that behavior exactly.
+3. Now refactor. The test guards against regression.
+4. Once refactored, consider if the behavior itself should change.
+
+### TDD
+
+1. **Red.** Write a failing test for the behavior you want.
+2. **Green.** Write minimal code to make it pass.
+3. **Refactor.** Clean up while tests stay green.
+
+TDD is a design tool, not a religion. Use when the interface is unclear. Skip when the implementation is obvious.
 
 ### Integration
+
 - Test real wiring between modules. Real database, real queue, real HTTP (or in-memory fakes).
 - Focus on: serialization, schema mismatches, timeout/retry, partial failures.
 - One happy path + each failure mode.
 
 ### E2E
+
 - Critical user journeys only: signup, login, checkout, payment, delete account.
 - Page object pattern for UI. API-level E2E when UI is unstable.
 - Assert on user-visible outcomes, not DOM structure.
 
 ### Regression
+
 - Record every production bug as a regression test. Bug → test → fix → verify.
 - Full suite before every release. Smoke subset for every commit.
 
 ### Performance (when applicable)
+
 - Set thresholds: p50 < 200ms, p99 < 1s. Fail the build if exceeded.
 - Ramp tests, not spike. Find the breaking point, not just "it's fast."
 
@@ -76,19 +112,6 @@ No "it doesn't work." No "sometimes." Be specific enough that anyone can reprodu
 - [ ] New code has corresponding tests
 - [ ] Coverage on changed files ≥ baseline
 
----
-
-## UnrealMCP 专项规则 (MUST)
-
-每个新 MCP tool **必须通过两层测试**，缺一不可：
-
-| 层 | 位置 | Gate |
-|----|------|------|
-| **Mock 集成测试** | `MCP_Server/tests/test_unreal_client.rs` | 全部通过 |
-| **真实 UE 环境测试** | `MCP_Server/tests/test_real_ue.rs` | `#[ignore]` 标记，**每 tool 必须手跑通过** |
-
-> 详细指南、线程派发模式、API 适配清单、常见陷阱 → **[unreal-testing-guide.md](unreal-testing-guide.md)**
-
 ## Anti-Patterns
 
 - **Testing the framework.** Don't verify that libraries work.
@@ -96,3 +119,4 @@ No "it doesn't work." No "sometimes." Be specific enough that anyone can reprodu
 - **Test duplication.** Same behavior tested at multiple layers → pick the lowest layer that covers it.
 - **Over-mocking.** If your test is 80% mocks, it tests mocks, not code.
 - **Ice cream cone.** More E2E than unit tests. Slow, flaky, hard to debug.
+- **Testing implementation details.** Private methods, internal state shape — test the public contract.

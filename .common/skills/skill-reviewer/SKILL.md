@@ -52,29 +52,3 @@ Review `SKILL.md` files against a quality checklist. Report issues by severity w
 | **Complete** | Covers the skill's scope end-to-end | Gaps in workflow or missing sub-topics |
 | **Focused** | Stays on the skill's domain | Drifts into other skills' territory |
 | **Concrete** | Examples, templates, exact flags | Abstract principles without application |
-
-## Output Format
-
-```text
-## Review: <file>
-
-### Critical (N)
-- L<line>: SR<code> <issue> → <fix>
-
-### Warning (N)
-- L<line>: SR<code> <issue> → <fix>
-
-### Info (N)
-- L<line>: SR<code> <issue> → <fix>
-
-### Quality Score
-- Actionable: X/5
-- Scannable: X/5
-- Complete:  X/5
-- Focused:   X/5
-- Concrete:  X/5
-
-**Summary:** X critical, Y warning, Z info — clean / minor issues / needs rework
-```
-
-No issues: `## Review: <file> — clean ✓`

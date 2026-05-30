@@ -12,7 +12,9 @@ Personal skill hub. Skills in `.common/skills/`, agents in `.common/agents/`.
 | --- | --- | --- |
 | architect | `/architect` | System design, architecture decisions, trade-off analysis, API design |
 | code-reviewer | `/code-reviewer` | Review code for correctness, safety, clarity, and completeness |
-| qa-engineer | `/qa-engineer` | Test strategy, case design, bug reporting, quality gates |
+| qa-engineer | `/qa-engineer` | Test writing, strategy, case design, TDD, bug reporting, quality gates |
+| programmer | `/programmer` | Write code, style, language guides (TS/JS/Python/Go/Rust/Java/SQL/Shell) |
+| project-manager | `/project-manager` | Milestone-based project planning, task breakdown, progress tracking |
 | technical-artist | `/technical-artist` | UE material creation, shader development, visual effects prototyping. Dispatches to material skills. |
 
 ## Skills
@@ -20,11 +22,8 @@ Personal skill hub. Skills in `.common/skills/`, agents in `.common/agents/`.
 | Skill | Command | What it does |
 | --- | --- | --- |
 | git-flow | `/git-flow` | Branch → commit → rebase → merge workflow |
-
 | markdown-writer | `/markdown-writer` | Structured markdown writing with mandatory self-review |
-| programmer | `/programmer` | Code style, workflow, debugging, refactoring, testing, review, language guides |
-| project-manager | `/project-manager` | Milestone-based project planning, task breakdown, progress tracking |
+| debugging | `/debugging` | Systematic debugging — reproduce, isolate, root cause, fix, regression test |
 | refactor | `/refactor` | Restructure code without changing behavior — simplify, deduplicate, improve design |
 | skill-reviewer | `/skill-reviewer` | Review SKILL.md files for structure, clarity, completeness, quality |
-| dev-flow | `/dev-flow` | UnrealMCP 7-phase development workflow with 3-step tool template |
 | ta-jade | `/ta-jade` | Jade/玉石 material — subsurface scattering, internal veining, color variants |

@@ -1,8 +1,8 @@
 ---
 name: programmer
-description: Invoke when writing, debugging, or reviewing code. Covers TS/JS, Python, Go, Rust, Java/Kotlin, SQL, Shell.
+description: Invoke when writing code. Covers TS/JS, Python, Go, Rust, Java/Kotlin, SQL, Shell.
 metadata:
-  type: skill
+  type: agent
   trigger: manual
   languages: [typescript, javascript, python, go, rust, java, kotlin, sql, shell, bash]
 ---
@@ -34,24 +34,6 @@ metadata:
 4. Test happy path then edges: empty, bounds, errors, concurrency.
 5. Run the app. Passing tests ≠ working feature.
 
-## Debugging
-
-- Reproduce first. Fix root cause, not symptom. One bug per commit. Add regression test.
-
-## Refactoring
-
-- Have a measurable goal. Never mix with features. Use automated tools first. Tests as safety net.
-
-## Testing
-
-- Test behavior, not implementation. One concept per test. Descriptive names (`it_returns_404_for_missing_user`).
-- Wrap external deps in adapters; mock adapters, not the third-party code.
-- Unit for logic, integration for wiring. Both needed.
-
-## Code Review
-
-Check: correctness, safety, clarity, simplicity, consistency, completeness (tests + errors + logging).
-
 ## Language Guides
 
 ### TS/JS
@@ -74,3 +56,12 @@ Parameterized queries always. Explicit column lists. Indexes match queries. Tran
 
 ### Shell
 Quote expansions. `set -euo pipefail`. `[[ ]]` over `[ ]`. Long flags in scripts. Check exit codes.
+
+## Related Skills
+
+| Task | Skill |
+| --- | --- |
+| Debugging & root cause analysis | `/debugging` |
+| Writing tests, test strategy, QA | `/qa-engineer` |
+| Restructuring code without changing behavior | `/refactor` |
+| Reviewing code for correctness & safety | `/code-reviewer` |
