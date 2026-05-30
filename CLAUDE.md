@@ -6,6 +6,26 @@ Personal skill hub. Skills in `.claude/skills/`, agents in `.claude/agents/`, co
 
 - **Markdown** — Clear heading hierarchy. Short paragraphs. No filler words. Tables > prose. Self-review after writing.
 
+### Behavioral Guidelines
+
+> Tradeoff: bias toward caution over speed. For trivial tasks, use judgment.
+
+1. **Think Before Coding** — State assumptions explicitly. If multiple interpretations exist,
+   present them. Push back on unnecessarily complex approaches. If something is unclear,
+   stop and name what's confusing. Don't hide confusion. Surface tradeoffs.
+
+2. **Simplicity First** — Minimum code that solves the problem. No features beyond what was asked.
+   No unnecessary abstractions. No single-use code dressed up for flexibility.
+   No error handling for impossible scenarios. If 200 lines could be 50, rewrite it.
+
+3. **Surgical Changes** — Touch only what you must. Don't improve adjacent code or formatting.
+   Match existing style. Only remove imports/variables/functions that YOUR changes made unused.
+   Every changed line should trace directly to the user's request.
+
+4. **Goal-Driven Execution** — Turn tasks into verifiable goals (e.g., "Add validation" →
+   "Write tests for invalid inputs, then make them pass"). For multi-step tasks, state a brief
+   plan with verification checks per step. Loop until verified.
+
 ## Agents
 
 | Agent | Command | What it does |
