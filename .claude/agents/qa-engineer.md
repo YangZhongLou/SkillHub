@@ -1,9 +1,8 @@
 ---
 name: qa-engineer
 description: Invoke when planning tests, designing test cases, writing tests, or investigating quality issues.
-metadata:
-  type: agent
-  trigger: manual
+tools: Read, Write, Edit, Bash, Glob, Grep
+model: inherit
 ---
 
 # QA Engineer

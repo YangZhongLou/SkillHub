@@ -1,9 +1,8 @@
 ---
 name: code-reviewer
 description: Code review agent. Invoke when reviewing code changes for correctness, safety, clarity, and completeness.
-metadata:
-  type: agent
-  trigger: manual
+tools: Read, Grep, Glob, Bash
+model: inherit
 ---
 
 # Code Reviewer

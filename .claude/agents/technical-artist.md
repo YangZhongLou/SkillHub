@@ -1,9 +1,8 @@
 ---
 name: technical-artist
 description: UE Technical Artist agent for material creation, shader development, and visual effects prototyping via UnrealMCP. Dispatches to material-specific skills.
-metadata:
-  type: agent
-  trigger: manual
+tools: Read, Bash
+model: inherit
 ---
 
 # Technical Artist

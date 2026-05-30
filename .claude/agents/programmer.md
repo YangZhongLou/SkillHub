@@ -1,10 +1,8 @@
 ---
 name: programmer
 description: Invoke when writing code. Covers TS/JS, Python, Go, Rust, Java/Kotlin, SQL, Shell.
-metadata:
-  type: agent
-  trigger: manual
-  languages: [typescript, javascript, python, go, rust, java, kotlin, sql, shell, bash]
+tools: Read, Write, Edit, Bash, Glob, Grep
+model: inherit
 ---
 
 # Programmer
