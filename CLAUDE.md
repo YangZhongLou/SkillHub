@@ -2,11 +2,7 @@
 
 Personal skill hub. Skills in `.claude/skills/`, agents in `.claude/agents/`, commands in `.claude/commands/`.
 
-## Global Rules
-
-- **Markdown** — Clear heading hierarchy. Short paragraphs. No filler words. Tables > prose. Self-review after writing.
-
-### Behavioral Guidelines
+## Behavioral Guidelines
 
 > Tradeoff: bias toward caution over speed. For trivial tasks, use judgment.
 
