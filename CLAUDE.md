@@ -1,6 +1,6 @@
 # SkillHub
 
-Personal skill hub. Skills in `.common/skills/`, agents in `.common/agents/`.
+Personal skill hub. Skills in `.claude/skills/`, agents in `.claude/agents/`, commands in `.claude/commands/`.
 
 ## Global Rules
 
