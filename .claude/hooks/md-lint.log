@@ -34,3 +34,15 @@
 [2026-05-30T12:12:58.821427] LINT: exit=0 issues=0 chars
 [2026-05-30T12:13:00.460102] CALLED: filepath=D:\Playground\SkillHub\.claude\commands\technical-artist.md
 [2026-05-30T12:13:01.006147] LINT: exit=0 issues=0 chars
+[2026-05-30T12:20:17.708079] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:20:18.318465] LINT: exit=1 issues=1037 chars
+[2026-05-30T12:25:00.610406] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:25:01.219535] LINT: exit=1 issues=328 chars
+[2026-05-30T12:25:18.012675] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:25:18.579412] LINT: exit=1 issues=246 chars
+[2026-05-30T12:25:23.357893] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:25:23.940948] LINT: exit=1 issues=164 chars
+[2026-05-30T12:25:27.687625] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:25:28.257856] LINT: exit=1 issues=82 chars
+[2026-05-30T12:25:29.698611] CALLED: filepath=D:\Playground\SkillHub\CLAUDE.md
+[2026-05-30T12:25:30.248397] LINT: exit=0 issues=0 chars
