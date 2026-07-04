@@ -37,6 +37,7 @@ Personal skill hub. Skills in `.claude/skills/`, agents in `.claude/agents/`, co
 | programmer | `/programmer` | Write code, style, language guides (TS/JS/Python/Go/Rust/Java/SQL/Shell) |
 | project-manager | `/project-manager` | Milestone-based project planning, task breakdown, progress tracking |
 | technical-artist | `/technical-artist` | UE material creation, shader development, visual effects prototyping. Dispatches to material skills. |
+| audio-designer | `/audio-designer` | AI audio generation for UE using ACE-Step, Stable Audio Open, and MMAudio. |
 | ui-designer | `/ui-designer` | UI layout design, hierarchy, spacing, and flow for UMG and general interfaces |
 
 ## Skills
